@@ -4,10 +4,7 @@ pipeline {
           string(name: 'PLANET', defaultValue: 'Earth', description: 'Which planet are we on?')
           string(name: 'GREETING', defaultValue: 'Hello', description: 'How shall we greet?')
         }
-        triggers {
-        echo 'Hello Vishal'
-        }
-    
+      
     stages {
         stage('Hello') {
             steps {
