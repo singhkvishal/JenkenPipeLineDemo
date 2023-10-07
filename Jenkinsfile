@@ -5,7 +5,7 @@ pipeline {
           string(name: 'GREETING', defaultValue: 'Hello', description: 'How shall we greet?')
         }
         triggers {
-        echo "Test"
+        echo 'Hello Vishal'
         }
     
     stages {
