@@ -1,31 +1,12 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-            }
-        }
-        stage('Buid') {
-            steps {
-                echo 'Building'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing'
-            }
-        }
-        stage('Release') {
-            steps {
-                echo 'Releasing'
-            }
-        }
-    }
-}
+properties([
+  parameters([
+    string(name: 'PLANET', defaultValue: 'Earth', description: 'Which planet are we on?'),
+    string(name: 'GREETING', defaultValue: 'Hello', description: 'How shall we greet?')
+  ]),
+  pipelineTriggers([
+    parameterizedCron('''
+        */2 * * * * %GREETING=Hola;PLANET=Pluto
+        */3 * * * * %PLANET=Mars
+    ''')
+  ])
+])
