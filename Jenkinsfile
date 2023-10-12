@@ -6,6 +6,6 @@ properties([
     choice(name: 'Test_Envirement',choices: ['QA','UAT'])
   ]),
   pipelineTriggers([
-    cron('*/2 * * * * ')
+    cron('*/2 * * * * ','*/5 * * * *')
   ])
 ])
